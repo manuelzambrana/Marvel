@@ -43,8 +43,9 @@
           android:layout_gravity="center_horizontal">
 
           <ImageView
-            android:src="@drawable/spiderman"
+            android:src="@drawable/personajes"
             android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"/>
 
@@ -82,15 +83,16 @@
           android:layout_gravity="center_horizontal">
 
           <ImageView
-            android:src="@drawable/spiderman"
+            android:src="@drawable/series"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
+            android:scaleType="centerCrop"
             android:layout_gravity="center_horizontal"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Characters"
+            android:text="Series"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
@@ -128,15 +130,16 @@
           android:layout_gravity="center_horizontal">
 
           <ImageView
-            android:src="@drawable/spiderman"
+            android:src="@drawable/stan_lee"
             android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"/>
 
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Characters"
+            android:text="Creators"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"
@@ -167,8 +170,9 @@
           android:layout_gravity="center_horizontal">
 
           <ImageView
-            android:src="@drawable/spiderman"
+            android:src="@drawable/events"
             android:layout_width="wrap_content"
+            android:scaleType="centerCrop"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"/>
 
@@ -176,7 +180,7 @@
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Characters"
+            android:text="Events"
             android:textAlignment="center"
             android:textColor="@android:color/white"
             android:textSize="18sp"

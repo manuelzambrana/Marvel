@@ -1,5 +1,6 @@
 package com.example.marvel
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,13 +13,14 @@ import com.example.marvel.adapters.ComicsAdapter
 import com.example.marvel.api.ApiRest
 import com.example.marvel.models.comics.ComicsResult
 import com.example.marvel.models.comics.ComicsStatus
+import com.example.marvel.objects.DataHolder
 import kotlinx.android.synthetic.main.activity_comics.*
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ComicsActivity : AppCompatActivity() {
+class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, ComicsAdapter.ComicPosition {
   val TAG = "miapp"
   var idPersonaje = ""
   var dataComics: ArrayList<ComicsResult> = arrayListOf()
@@ -40,7 +42,7 @@ class ComicsActivity : AppCompatActivity() {
 
     val mLayoutManager = GridLayoutManager(this, 2)
     recycler_comics.layoutManager = mLayoutManager
-    adapter = ComicsAdapter(dataComics)
+    adapter = ComicsAdapter(dataComics, this, this)
     recycler_comics.adapter = adapter
 
     recycler_comics.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -92,6 +94,17 @@ class ComicsActivity : AppCompatActivity() {
         loadingComics.visibility = View.GONE
       }
     })
+  }
+
+
+  override fun onComicClick(id: String) {
+
+  }
+
+  override fun onPosition(position: Int) {
+    Log.v("miapp", "$position")
+
+    //startActivity(Intent(this, ComicInfoActivity::class.java).putExtra("position",position))
   }
 
 

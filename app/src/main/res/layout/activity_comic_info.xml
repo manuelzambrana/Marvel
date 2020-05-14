@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".ComicInfoActivity"
+  android:orientation="vertical"
+  android:background="@android:color/black"
+  >
+
+<RelativeLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+
+  >
+  <ImageView
+    android:id="@+id/bckImage"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    android:scaleType="centerCrop"
+    android:alpha="0.5"
+    android:src="@drawable/spiderman"/>
+  <ImageView
+    android:id="@+id/imgComicInfo"
+    android:layout_marginTop="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:src="@drawable/spiderman"/>
+</RelativeLayout>
+
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+      android:id="@+id/txtTitleComic"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textStyle="bold"
+      android:text="TITLE COMIC"
+      android:textColor="@android:color/white"
+      android:textAlignment="center"
+      android:paddingTop="10dp"/>
+    <TextView
+      android:id="@+id/txtDescription"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:textColor="@android:color/white"
+      android:text="The Marvel Age of Comics continues! This time around,
+      Spidey meets his match against such classic villains as Electro and the Lizard, and faces the
+      return of one of his first foes: the Vulture! Plus: Spider-Man vs. the Living Brain, Peter Par
+      ker's fight with Flash Thompson, and the wall-crawler tackles
+      the high-flying Human Torch!"
+      android:paddingStart="12dp"
+      android:layout_marginTop="12dp"/>
+    <TextView
+      android:id="@+id/txtCreators"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:textColor="@android:color/white"
+      android:text="Autores: Stan Lee, Jason park, Guti Lelo"
+      android:paddingStart="12dp"
+      android:layout_marginTop="12dp"/>
+    <TextView
+      android:id="@+id/txtDate"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:textColor="@android:color/white"
+      android:text="Fechas: 21/17/1980"
+      android:paddingStart="12dp"
+      android:layout_marginTop="12dp"/>
+
+    <Button
+      android:id="@+id/next"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="next"/>
+  </LinearLayout>
+
+</LinearLayout>

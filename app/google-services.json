@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "900372608670",
+    "firebase_url": "https://wikivel-d410c.firebaseio.com",
+    "project_id": "wikivel-d410c",
+    "storage_bucket": "wikivel-d410c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900372608670:android:a6bba2e5ee1c3d3110ad8f",
+        "android_client_info": {
+          "package_name": "com.example.marvel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900372608670-vg64hi5kvgc7j9dijrlqauh7mfkrm25r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.marvel",
+            "certificate_hash": "96a029b8fa5aa2ea31f9fc20f83bb2f098ac93a2"
+          }
+        },
+        {
+          "client_id": "900372608670-sb7vjij06dkkeqkg9lfrfag57820p8ra.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtLwVUg9fqWMG-0isWjQ8E_LXRiWYzVJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "900372608670-sb7vjij06dkkeqkg9lfrfag57820p8ra.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

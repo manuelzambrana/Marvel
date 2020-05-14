@@ -12,7 +12,8 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".InitialScreen"></activity>
+    <activity android:name=".ComicInfoActivity"></activity>
+    <activity android:name=".InitialScreen" />
     <activity android:name=".MainActivity" />
     <activity android:name=".ComicsActivity" />
     <activity
