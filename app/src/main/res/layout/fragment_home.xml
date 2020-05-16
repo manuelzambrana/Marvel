@@ -111,6 +111,7 @@
       android:orientation="horizontal"
       android:layout_margin="15dp">
       <androidx.cardview.widget.CardView
+        android:id="@+id/goToCreators"
         android:layout_width="0dp"
         android:layout_weight="0.5"
         android:layout_height="wrap_content"

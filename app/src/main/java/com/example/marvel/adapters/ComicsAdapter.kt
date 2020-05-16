@@ -10,7 +10,9 @@ import com.example.marvel.ComicInfoActivity
 import com.example.marvel.R
 import com.example.marvel.models.comics.ComicsResult
 import com.example.marvel.models.comics.Image
+import com.example.marvel.objects.DataHolder
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_comic_info.view.*
 import kotlinx.android.synthetic.main.item_comics.view.*
 import kotlinx.android.synthetic.main.item_home.view.*
 
@@ -23,10 +25,30 @@ class ComicsAdapter (private val dataComics: ArrayList<ComicsResult>, val comicL
     holder.bind(dataComics[position])
     val data = dataComics?.get(position)
     data?.let {
+
       holder.bind(it)
-      holder.itemView.setOnClickListener {
-        Log.v("miapp", "He hecho click en la celda $position")
+      holder.itemView.clickComics.setOnClickListener {
+        val url: String = data.thumbnail.path.replace("http", "https")
+        val extension = data.thumbnail.extension
+        var image = "${url}/portrait_xlarge.$extension"
+        DataHolder.currentComic = position
         comicPosition.onPosition(position)
+        Log.v("miapp" ,"${data.title}")
+        var intent = Intent(holder.itemView.context, ComicInfoActivity::class.java)
+        intent.putExtra("title", data.title)
+        intent.putExtra("description", data.description)
+        var creadores = ""
+        data.creators.items.forEach {nombre->
+          creadores += "${nombre.name}, "
+        }
+        intent.putExtra("creators", creadores)
+        intent.putExtra("pages", data.pageCount)
+        var fecha = data.dates.elementAt(0).date.toString().substring(0,10 )
+        intent.putExtra("date", fecha)
+        intent.putExtra("image",image)
+        holder.itemView.context.startActivity(intent)
+
+
       }
     }
   }
@@ -51,17 +73,9 @@ class ComicsAdapter (private val dataComics: ArrayList<ComicsResult>, val comicL
       itemView.creators.text = creadores
 
       itemView.clickComics.setOnClickListener{
-        var fecha = item.dates.elementAt(0).date.toString().substring(0,10 )
+
         comicListenerInfo.onComicClick(item.id)
         Log.v("miapp", item.id + " ${item.title} ")
-        var intent = Intent(itemView.context, ComicInfoActivity::class.java)
-        intent.putExtra("title", item.title)
-        intent.putExtra("description", item.description)
-        intent.putExtra("creators", creadores)
-        intent.putExtra("pages", item.pageCount)
-        intent.putExtra("date", fecha)
-        intent.putExtra("image",image)
-        itemView.context.startActivity(intent)
 
 
       }

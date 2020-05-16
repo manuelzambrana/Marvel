@@ -32,7 +32,12 @@ class HomeFragment : Fragment() {
       var characters = Intent(activity, MainActivity::class.java)
      startActivity(characters)
     }
-    return  view
+
+    view.goToCreators.setOnClickListener { view->
+      var creators = Intent(activity, CreatorsActivity::class.java)
+      startActivity(creators)
+    }
+    return view
 
 
 

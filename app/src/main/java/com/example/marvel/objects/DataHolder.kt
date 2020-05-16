@@ -4,5 +4,6 @@ import com.example.marvel.models.comics.ComicsResult
 
 object DataHolder {
 
-  var currentComic = Int
+  var currentComic = 0
+  var dataComicsData: ArrayList<ComicsResult> = arrayListOf()
 }

@@ -12,6 +12,7 @@ import com.example.marvel.adapters.ComicListener
 import com.example.marvel.api.ApiRest
 import com.example.marvel.models.AllCharacters
 import com.example.marvel.models.characters
+import com.google.android.gms.common.data.DataHolder
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback

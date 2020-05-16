@@ -53,11 +53,13 @@ class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, Com
           val totalItemCount: Int = mLayoutManager.itemCount
           val pastVisibleItems: Int = mLayoutManager.findFirstVisibleItemPosition()
           if (aptoParaCargarComics) {
+
             if (visibleItemCount + pastVisibleItems >= totalItemCount) {
-              Log.i(TAG, " Llegamos al final.")
+              Log.i("apto", " Llegamos al final.")
               aptoParaCargarComics = false
               offset += 10
               getComics(offset)
+
             }
           }
         }
@@ -75,13 +77,32 @@ class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, Com
       override fun onResponse(call: Call<ComicsStatus>, response: Response<ComicsStatus>) {
         val body = response.body()
         if (response.isSuccessful && body != null) {
-
           aptoParaCargarComics = true
+          Log.v("apto","$aptoParaCargarComics")
           val result = body.data.results
 
           if (result != null) {
             dataComics.addAll(result)
+            result.forEach {
+              Log.v("original", it.title)
+            }
+
+
+           DataHolder.dataComicsData.addAll(result)
+
+
+            dataComics.forEach {juan->
+              Log.v("veamos2", "${juan.title}")
+
+            }
+
+          DataHolder.dataComicsData.forEach {pepe ->
+            Log.v("veamos","${pepe.title}" )
+          }
+
+            Log.v("holder", "$result")
             adapter?.notifyDataSetChanged()
+
           }
         } else {
           Log.e(TAG, response.errorBody()?.string())

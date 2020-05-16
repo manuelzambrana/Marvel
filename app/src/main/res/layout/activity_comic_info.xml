@@ -14,6 +14,7 @@
   android:layout_height="wrap_content"
 
   >
+
   <ImageView
     android:id="@+id/bckImage"
     android:layout_width="match_parent"
@@ -21,6 +22,19 @@
     android:scaleType="centerCrop"
     android:alpha="0.5"
     android:src="@drawable/spiderman"/>
+  <Button
+    android:layout_alignEnd="@id/bckImage"
+    android:id="@+id/next"
+    android:layout_centerVertical="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="40sp"
+    android:background="@android:color/transparent"
+    android:radius="1000dp"
+    style="?android:attr/borderlessButtonStyle"
+    android:backgroundTint="#00252525"
+    android:layout_marginRight="10dp"
+    android:text="➡"/>
   <ImageView
     android:id="@+id/imgComicInfo"
     android:layout_marginTop="8dp"
@@ -29,7 +43,9 @@
     android:src="@drawable/spiderman"/>
 </RelativeLayout>
 
-
+<ScrollView
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -72,11 +88,8 @@
       android:paddingStart="12dp"
       android:layout_marginTop="12dp"/>
 
-    <Button
-      android:id="@+id/next"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="next"/>
+
   </LinearLayout>
+</ScrollView>
 
 </LinearLayout>
