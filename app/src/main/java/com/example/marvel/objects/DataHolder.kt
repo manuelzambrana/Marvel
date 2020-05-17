@@ -6,4 +6,5 @@ object DataHolder {
 
   var currentComic = 0
   var dataComicsData: ArrayList<ComicsResult> = arrayListOf()
+  var id = 0
 }

@@ -12,14 +12,13 @@
     android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
       android:layout_width="match_parent"
-      android:id="@+id/recycler_creators"
+      android:id="@+id/recycler_series"
       tools:listitem="@layout/item_home"
       android:layout_height="match_parent"
       />
     <ProgressBar
       android:layout_width="match_parent"
       android:layout_height="48dp"
-      android:id="@+id/loadingCreators"/>
-
+      android:id="@+id/loadingSeries"/>
   </LinearLayout>
 </ScrollView>

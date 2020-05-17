@@ -12,7 +12,9 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".CreatorsActivity"></activity>
+    <activity android:name=".SeriesInfoActivity"></activity>
+    <activity android:name=".SeriesActivity" />
+    <activity android:name=".CreatorsActivity" />
     <activity android:name=".ComicInfoActivity" />
     <activity android:name=".InitialScreen" />
     <activity android:name=".MainActivity" />

@@ -2,8 +2,10 @@ package com.example.marvel.api
 
 
 import com.example.marvel.models.characters
+import com.example.marvel.models.comicSeries.ComicSeries
 import com.example.marvel.models.comics.ComicsStatus
 import com.example.marvel.models.creators.MyCreators
+import com.example.marvel.models.series.Series
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.Call
@@ -28,5 +30,18 @@ interface ApiService {
                     @Query("limit") limit:Int
 
   ):Call<MyCreators>
+
+  @GET("/v1/public/series?ts=1&apikey=99fb6b7e6c55754494fcdc8c3eec3a37&hash=57afda495af48bd0285f97b618d335e0")
+  fun getSeries(@Query("offset") offset:Int,
+                  @Query("limit") limit:Int
+
+  ):Call<Series>
+
+  @GET("/v1/public/series/{seriesId}/comics?ts=1&apikey=99fb6b7e6c55754494fcdc8c3eec3a37&hash=57afda495af48bd0285f97b618d335e0")
+  fun getComisSeries(@Path("seriesId") characterId: String,
+                @Query("offset") offset:Int,
+                @Query("limit") limit:Int
+
+  ): Call<ComicSeries>
 
 }

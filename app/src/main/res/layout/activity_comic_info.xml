@@ -22,19 +22,34 @@
     android:scaleType="centerCrop"
     android:alpha="0.5"
     android:src="@drawable/spiderman"/>
-  <Button
+  <ImageButton
     android:layout_alignEnd="@id/bckImage"
     android:id="@+id/next"
     android:layout_centerVertical="true"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:textSize="40sp"
     android:background="@android:color/transparent"
     android:radius="1000dp"
     style="?android:attr/borderlessButtonStyle"
     android:backgroundTint="#00252525"
     android:layout_marginRight="10dp"
-    android:text="➡"/>
+    android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+
+    />
+  <ImageButton
+
+    android:id="@+id/back"
+    android:layout_centerVertical="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:radius="1000dp"
+    style="?android:attr/borderlessButtonStyle"
+    android:backgroundTint="#00252525"
+    android:layout_marginLeft="10dp"
+    android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+
+    />
   <ImageView
     android:id="@+id/imgComicInfo"
     android:layout_marginTop="8dp"

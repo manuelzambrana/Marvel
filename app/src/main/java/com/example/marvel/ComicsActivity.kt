@@ -38,7 +38,12 @@ class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, Com
       Log.v(TAG, idPersonaje)
     }
     ApiRest.initService()
-
+var newId = idPersonaje
+var comparar = newId
+    if(newId == comparar) {
+      Log.v("idPre", "limpiar")
+      DataHolder.dataComicsData.clear()
+    }
 
     val mLayoutManager = GridLayoutManager(this, 2)
     recycler_comics.layoutManager = mLayoutManager
@@ -83,13 +88,7 @@ class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, Com
 
           if (result != null) {
             dataComics.addAll(result)
-            result.forEach {
-              Log.v("original", it.title)
-            }
-
-
            DataHolder.dataComicsData.addAll(result)
-
 
             dataComics.forEach {juan->
               Log.v("veamos2", "${juan.title}")
@@ -98,7 +97,10 @@ class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, Com
 
           DataHolder.dataComicsData.forEach {pepe ->
             Log.v("veamos","${pepe.title}" )
+
+            Log.v("veamos", "$idPersonaje")
           }
+
 
             Log.v("holder", "$result")
             adapter?.notifyDataSetChanged()
@@ -116,6 +118,9 @@ class ComicsActivity : AppCompatActivity(), ComicsAdapter.ComicListenerInfo, Com
       }
     })
   }
+
+
+
 
 
   override fun onComicClick(id: String) {

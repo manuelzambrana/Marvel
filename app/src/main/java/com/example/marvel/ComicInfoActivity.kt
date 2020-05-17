@@ -3,8 +3,10 @@ package com.example.marvel
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.marvel.objects.DataHolder
@@ -34,7 +36,11 @@ class ComicInfoActivity : AppCompatActivity() {
 
       Log.v("miapp", titleComic)
     }
-
+    if (DataHolder.currentComic == 0) {
+      back.visibility = View.INVISIBLE
+    } else {
+      back.visibility = View.VISIBLE
+    }
     txtTitleComic.text = titleComic
     txtDescription.text = description
 
@@ -45,13 +51,15 @@ class ComicInfoActivity : AppCompatActivity() {
 
     next.setOnClickListener{
       Log.v("miapp", DataHolder.currentComic.toString())
-
+      if (DataHolder.currentComic > 0) {
+        back.visibility = View.VISIBLE
+      }
       if (DataHolder.currentComic < DataHolder.dataComicsData.size - 1) {
         DataHolder.currentComic += 1
         var comic = DataHolder.dataComicsData[DataHolder.currentComic]
         txtTitleComic.text = comic.title
 
-        //txtDescription.text = comic.description
+        txtDescription.text = comic.description
 
         var creadoresNext = ""
         comic.creators.items.forEach {nombre->
@@ -69,6 +77,35 @@ class ComicInfoActivity : AppCompatActivity() {
         Picasso.get().load(imageNext).into(imgComicInfo)
          Picasso.get().load(imageNext).into(bckImage)
       }
+    }
+    back.setOnClickListener{
+      Log.v("miapp", DataHolder.currentComic.toString())
+
+      if (DataHolder.currentComic > DataHolder.dataComicsData.size - (DataHolder.dataComicsData.size)) {
+
+        DataHolder.currentComic -= 1
+        var comic = DataHolder.dataComicsData[DataHolder.currentComic]
+        txtTitleComic.text = comic.title
+
+        txtDescription.text = comic.description
+
+        var creadoresNext = ""
+        comic.creators.items.forEach {nombre->
+          creadoresNext += "${nombre.name}, "
+        }
+        txtCreators.text = "Creadores: "+creadoresNext
+
+        var fecha = comic.dates.elementAt(0).date.toString().substring(0,10 )
+        txtDate.text = "Fecha de salida: "+fecha
+
+        val url: String = comic.thumbnail.path.replace("http", "https")
+        val extension = comic.thumbnail.extension
+        var imageNext = "${url}/portrait_xlarge.$extension"
+
+        Picasso.get().load(imageNext).into(imgComicInfo)
+        Picasso.get().load(imageNext).into(bckImage)
+      }
+
     }
 
   }
