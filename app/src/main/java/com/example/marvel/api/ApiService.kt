@@ -5,6 +5,7 @@ import com.example.marvel.models.characters
 import com.example.marvel.models.comicSeries.ComicSeries
 import com.example.marvel.models.comics.ComicsStatus
 import com.example.marvel.models.creators.MyCreators
+import com.example.marvel.models.eventsSerie.EventsSerie
 import com.example.marvel.models.series.Series
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -43,5 +44,12 @@ interface ApiService {
                 @Query("limit") limit:Int
 
   ): Call<ComicSeries>
+
+  @GET("/v1/public/series/{seriesId}/events?ts=1&apikey=99fb6b7e6c55754494fcdc8c3eec3a37&hash=57afda495af48bd0285f97b618d335e0")
+  fun getEventsSeries(@Path("seriesId") characterId: String,
+                     @Query("offset") offset:Int,
+                     @Query("limit") limit:Int
+
+  ): Call<EventsSerie>
 
 }

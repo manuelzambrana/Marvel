@@ -9,40 +9,41 @@ import com.example.marvel.R
 import com.example.marvel.models.comicSeries.Result
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_comics_series.view.*
+import kotlinx.android.synthetic.main.item_events_serie.view.*
 
-class ComicSerieAdapter (private val dataComicSerie: ArrayList<Result>) : RecyclerView.Adapter<ComicSerieAdapter.ViewHolder>() {
+class EventsSerieAdapter (private val dataEventsSerie: ArrayList<com.example.marvel.models.eventsSerie.Result>) : RecyclerView.Adapter<EventsSerieAdapter.ViewHolder>() {
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    val view = LayoutInflater.from(parent.context).inflate(R.layout.item_comics_series, parent, false)
+    val view = LayoutInflater.from(parent.context).inflate(R.layout.item_events_serie, parent, false)
     return ViewHolder(view)
   }
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.bind(dataComicSerie[position])
+    holder.bind(dataEventsSerie[position])
 
-    }
+  }
 
   override fun getItemCount(): Int {
-    return dataComicSerie.size
+    return dataEventsSerie.size
 
   }
 
 
   inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    fun bind(item: Result) {
+    fun bind(item: com.example.marvel.models.eventsSerie.Result) {
 
-      itemView.txtSeriesComic.text = item.title
+      itemView.txtSeriesEvent.text = item.title
 
       val url: String = item.thumbnail.path.replace("http", "https")
       val extension = item.thumbnail.extension
       var image = "${url}/portrait_xlarge.$extension"
-      Picasso.get().load(image).into(itemView.portadaSeComic)
+      Picasso.get().load(image).into(itemView.portadaSeEvent)
       Log.v("funciona2", "${item.title}")
 
 
 
-      }
-
-
     }
+
+
+  }
 
 
 

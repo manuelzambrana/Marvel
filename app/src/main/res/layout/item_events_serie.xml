@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+  android:background="@android:color/black"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:layout_margin="20dp">
+
+  <LinearLayout
+    android:id="@+id/clickComics"
+    android:layout_width="150dp"
+    android:layout_height="350dp"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <ImageView
+      android:id="@+id/portadaSeEvent"
+      android:layout_width="140dp"
+      android:layout_height="200dp"
+      android:layout_margin="5dp"
+      android:scaleType="centerCrop"
+      android:src="@drawable/spiderman" />
+
+    <TextView
+      android:id="@+id/txtSeriesEvent"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimary"
+      android:paddingLeft="5dp"
+      android:paddingTop="5dp"
+      android:text="Ejemplo"
+      android:textAlignment="textStart"
+      android:textColor="@android:color/white" />
+
+
+  </LinearLayout>
+
+
+</LinearLayout>
