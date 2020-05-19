@@ -6,10 +6,18 @@
   android:background="@android:color/black"
   android:layout_height="match_parent"
   tools:context=".MainActivity">
+
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <TextView
+      android:id="@+id/disponibilidad"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:text="NO HAY EVENTOS DISPONIBLES"
+      android:textColor="@android:color/white"/>
     <androidx.recyclerview.widget.RecyclerView
       android:layout_width="match_parent"
       android:id="@+id/recycler_events_series"
@@ -19,6 +27,6 @@
     <ProgressBar
       android:layout_width="match_parent"
       android:layout_height="48dp"
-      android:id="@+id/loadingComicsSeries"/>
+      android:id="@+id/loadingEventsSeries"/>
   </LinearLayout>
 </ScrollView>

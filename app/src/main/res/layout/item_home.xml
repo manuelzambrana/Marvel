@@ -12,6 +12,7 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
+
     <ImageView
       android:id="@+id/portada"
       android:layout_width="140dp"

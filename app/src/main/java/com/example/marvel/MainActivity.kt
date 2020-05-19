@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvel.adapters.CharactersAdapter
 import com.example.marvel.adapters.ComicListener
@@ -13,10 +14,13 @@ import com.example.marvel.api.ApiRest
 import com.example.marvel.models.AllCharacters
 import com.example.marvel.models.characters
 import com.google.android.gms.common.data.DataHolder
+import com.trendyol.bubblescrollbarlib.BubbleTextProvider
+import com.turingtechnologies.materialscrollbar.AlphabetIndicator
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.StringBuilder
 
 
 class MainActivity : AppCompatActivity(), ComicListener {
@@ -30,12 +34,17 @@ class MainActivity : AppCompatActivity(), ComicListener {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+
     ApiRest.initService()
 
     val mLayoutManager = GridLayoutManager(this, 2)
     recycler_generos.layoutManager = mLayoutManager
     adapter = CharactersAdapter(data, this)
     recycler_generos.adapter = adapter
+    fastScroll.attachRecyclerView(recycler_generos)
+
+
 
     recycler_generos.addOnScrollListener(object : RecyclerView.OnScrollListener() {
       override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -49,12 +58,14 @@ class MainActivity : AppCompatActivity(), ComicListener {
               Log.i(TAG, " Llegamos al final.")
               aptoParaCargar = false
               offset += 10
+
               getCharacters(offset)
             }
           }
         }
       }
     })
+
 
     aptoParaCargar = true
     getCharacters(offset)
@@ -75,6 +86,8 @@ class MainActivity : AppCompatActivity(), ComicListener {
             Log.i(TAG, body.toString())
             data.addAll(result)
             adapter?.notifyDataSetChanged()
+
+
           }
         } else {
           Log.e(TAG, response.errorBody()?.string())

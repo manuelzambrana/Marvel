@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:background="@android:color/black"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="@android:color/black"
   android:layout_height="match_parent"
   tools:context=".MainActivity">
-  <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-  <androidx.recyclerview.widget.RecyclerView
+
+
+
+   <androidx.recyclerview.widget.RecyclerView
     android:layout_width="match_parent"
     android:id="@+id/recycler_generos"
     tools:listitem="@layout/item_home"
     android:layout_height="match_parent"
+
     />
+
+  <com.pluscubed.recyclerfastscroll.RecyclerFastScroller
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+   app:rfs_barColor="@android:color/holo_red_light"
+    app:rfs_handleNormalColor="@android:color/holo_red_light"
+    app:rfs_handlePressedColor="@android:color/holo_red_dark"
+    android:id="@+id/fastScroll" />
+
   <ProgressBar
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:id="@+id/loading"/>
-  </LinearLayout>
-</ScrollView>
+
+</RelativeLayout>

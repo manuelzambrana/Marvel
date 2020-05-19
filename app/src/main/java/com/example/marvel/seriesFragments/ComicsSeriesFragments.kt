@@ -20,6 +20,7 @@ import com.example.marvel.models.comics.ComicsStatus
 import com.example.marvel.objects.DataHolder
 import kotlinx.android.synthetic.main.activity_comics.*
 import kotlinx.android.synthetic.main.fragment_comics_series_fragments.*
+import kotlinx.android.synthetic.main.fragment_events_series.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -92,6 +93,7 @@ var dataComicsSeries: ArrayList<Result> = arrayListOf()
 
   private fun getComicSerie(offset: Int) {
     loadingComicsSeries.visibility =  View.VISIBLE
+    disponibilidadComics.visibility = View.INVISIBLE
     val call = ApiRest.service.getComisSeries(characterId = DataHolder.id.toString()
       , offset = offset, limit = 10)
     call.enqueue(object : Callback<ComicSeries> {
@@ -112,6 +114,14 @@ var dataComicsSeries: ArrayList<Result> = arrayListOf()
           }
         } else {
           Log.e(TAG, response.errorBody()?.string())
+        }
+
+        if (body != null) {
+          if (body.data.count > 0) {
+            disponibilidadComics.visibility = View.INVISIBLE
+          } else {
+            disponibilidadComics.visibility = View.VISIBLE
+          }
         }
         loadingComicsSeries.visibility =  View.GONE
       }

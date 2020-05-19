@@ -7,14 +7,14 @@
   android:layout_margin="20dp">
 
   <LinearLayout
-    android:id="@+id/clickComics"
+    android:id="@+id/clickComicsStories"
     android:layout_width="150dp"
     android:layout_height="350dp"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <ImageView
-      android:id="@+id/portadaSeEvent"
+      android:id="@+id/portadaSeStories"
       android:layout_width="140dp"
       android:layout_height="200dp"
       android:layout_margin="5dp"
@@ -22,7 +22,7 @@
       android:src="@drawable/spiderman" />
 
     <TextView
-      android:id="@+id/txtSeriesEvent"
+      android:id="@+id/txtSeriesStories"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@color/colorPrimary"
