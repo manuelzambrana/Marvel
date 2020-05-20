@@ -25,7 +25,7 @@
 
       <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingStart="30dp"
         android:paddingTop="30dp"
@@ -36,14 +36,14 @@
           android:layout_height="wrap_content"
           android:layout_marginBottom="10dp"
           android:paddingStart="5dp"
-          android:text="Editar Perfil"
+          android:text="Iniciar sesión"
 
           android:textAlignment="textStart"
           android:textColor="@android:color/white"
           android:textStyle="bold" />
 
         <EditText
-          android:id="@+id/editEmail"
+          android:id="@+id/edEmail"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:hint="Correo electrónico"
@@ -53,12 +53,12 @@
           android:backgroundTint="@android:color/holo_red_light"/>
 
         <EditText
-          android:id="@+id/editName"
+          android:id="@+id/edPass"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="10dp"
-          android:hint="Name"
-          android:inputType="text"
+          android:hint="Contraseña"
+          android:inputType="textPassword"
           android:backgroundTint="@android:color/holo_red_light"
           android:textColor="@android:color/white"
           android:textColorHint="@android:color/white"/>
@@ -66,38 +66,39 @@
       </LinearLayout>
 
       <Button
-        android:id="@+id/btnEdit"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
         android:textColor="@android:color/white"
+        android:layout_marginEnd="30dp"
         android:padding="16dp"
-        android:text="Editar"
+        android:text="Entrar"
         android:backgroundTint="@android:color/holo_red_light"/>
 
-
-      <RelativeLayout
+      <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
-        <Button
-          android:id="@+id/btnLogOut"
-          android:textColor="@android:color/white"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="30dp"
-          android:layout_marginTop="10dp"
-          android:layout_marginEnd="30dp"
-          android:padding="16dp"
-          android:text="Cerrar Sesion"
-          android:backgroundTint="#162143"/>
-      </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="o"
+        android:textColor="@android:color/white"
+        android:textAlignment="center" />
 
+
+      <Button
+        android:id="@+id/btnSignup"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:padding="16dp"
+        android:text="Quiero registrarme"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false" />
     </LinearLayout>
-
-
   </ScrollView>
 
 

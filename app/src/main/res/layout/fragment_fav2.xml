@@ -7,10 +7,9 @@
   tools:context=".FavFragment">
 
   <!-- TODO: Update blank fragment layout -->
-  <TextView
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/myRecyclerviewFav"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="HELLO FAV FRAGMENT"
-    android:textColor="@android:color/white"/>
+    android:layout_height="match_parent" />
 
 </FrameLayout>

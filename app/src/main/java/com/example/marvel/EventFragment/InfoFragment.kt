@@ -11,10 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.marvel.R
+import com.example.marvel.User.Event
 import com.example.marvel.api.ApiRest
 import com.example.marvel.models.EventId.EventById
 import com.example.marvel.models.EventId.ResultEventById
 import com.example.marvel.objects.DataHolder
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_info.*
 import retrofit2.Call
@@ -27,6 +30,10 @@ import retrofit2.Response
 class InfoFragment : Fragment() {
   var TAG = "events"
   var dataEvent: ArrayList<ResultEventById> = arrayListOf()
+  val db = FirebaseFirestore.getInstance()
+  var auth = FirebaseAuth.getInstance()
+  var newFav = Event()
+
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
@@ -41,6 +48,9 @@ class InfoFragment : Fragment() {
 
     ApiRest.initService()
     getEventsId(0)
+    addFav.setOnClickListener {
+      addFvourites(auth.currentUser?.uid.toString())
+    }
 
   }
 
@@ -81,6 +91,7 @@ class InfoFragment : Fragment() {
 
                 }
               }
+
             }
 
           }
@@ -97,6 +108,22 @@ class InfoFragment : Fragment() {
     })
   }
 
+  fun addFvourites(id: String) {
+    dataEvent.forEach{
+      newFav.name = it.title
+      val url: String = it.thumbnail.path.replace("http", "https")
+      val extension = it.thumbnail.extension
+      var image = "${url}/portrait_xlarge.$extension"
+      newFav.image = image
+
+      db.collection("user").document(id).collection("favs").add(newFav)
+        .addOnSuccessListener {
+          Log.v("miapp","añadido")
+        }  .addOnFailureListener { e ->
+          Log.w(TAG, "Error writing document", e)
+        }
+    }
+  }
 
 
 }
