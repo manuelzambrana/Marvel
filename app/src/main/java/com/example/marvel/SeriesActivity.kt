@@ -37,6 +37,7 @@ class SeriesActivity : AppCompatActivity(), SerieListener {
     adapter = SeriesAdapter(dataSeries,this)
     recycler_series.adapter = adapter
     ApiRest.initService()
+    fastScrollSeries.attachRecyclerView(recycler_series)
 
     ApiRest.initService()
     recycler_series.addOnScrollListener(object : RecyclerView.OnScrollListener() {

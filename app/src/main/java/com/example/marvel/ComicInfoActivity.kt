@@ -34,12 +34,23 @@ class ComicInfoActivity : AppCompatActivity() {
       image = bundle.getString("image").toString()
       position = bundle.getInt("position")
 
-      Log.v("miapp", titleComic)
+      if (description == "null") {
+        description = "No hay descripcion"
+
+      }
+
+
     }
     if (DataHolder.currentComic == 0) {
       back.visibility = View.INVISIBLE
     } else {
       back.visibility = View.VISIBLE
+    }
+
+    if (DataHolder.currentComic == DataHolder.dataComicsData.size - 1) {
+      next.visibility = View.INVISIBLE
+    } else {
+      next.visibility = View.VISIBLE
     }
     txtTitleComic.text = titleComic
     txtDescription.text = description
@@ -50,8 +61,12 @@ class ComicInfoActivity : AppCompatActivity() {
     Picasso.get().load(image).into(bckImage)
 
     next.setOnClickListener{
+
+      if (DataHolder.currentComic == DataHolder.dataComicsData.size - 2) {
+        next.visibility = View.INVISIBLE
+      }
       Log.v("miapp", DataHolder.currentComic.toString())
-      if (DataHolder.currentComic > 0) {
+      if (DataHolder.currentComic == 0) {
         back.visibility = View.VISIBLE
       }
       if (DataHolder.currentComic < DataHolder.dataComicsData.size - 1) {
@@ -80,8 +95,18 @@ class ComicInfoActivity : AppCompatActivity() {
     }
     back.setOnClickListener{
       Log.v("miapp", DataHolder.currentComic.toString())
+      if (DataHolder.currentComic == 1) {
+        back.visibility = View.INVISIBLE
+      } else {
+        back.visibility = View.VISIBLE
+      }
+      if (DataHolder.currentComic == DataHolder.dataComicsData.size - 1) {
+        next.visibility = View.VISIBLE
+      }
+      Log.v("miapp","resta ${DataHolder.dataComicsData.size - (DataHolder.dataComicsData.size)}")
 
       if (DataHolder.currentComic > DataHolder.dataComicsData.size - (DataHolder.dataComicsData.size)) {
+
 
         DataHolder.currentComic -= 1
         var comic = DataHolder.dataComicsData[DataHolder.currentComic]

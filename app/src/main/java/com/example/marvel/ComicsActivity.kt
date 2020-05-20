@@ -49,7 +49,7 @@ var comparar = newId
     recycler_comics.layoutManager = mLayoutManager
     adapter = ComicsAdapter(dataComics, this, this)
     recycler_comics.adapter = adapter
-
+    fastScrollComics.attachRecyclerView(recycler_comics)
     recycler_comics.addOnScrollListener(object : RecyclerView.OnScrollListener() {
       override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)

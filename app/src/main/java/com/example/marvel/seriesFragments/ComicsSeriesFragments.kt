@@ -67,18 +67,20 @@ var dataComicsSeries: ArrayList<Result> = arrayListOf()
 
     recycler_comics_series.addOnScrollListener(object : RecyclerView.OnScrollListener() {
       override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
         super.onScrolled(recyclerView, dx, dy)
         if (dy > 0) {
           val visibleItemCount: Int = mLayoutManager.childCount
           val totalItemCount: Int = mLayoutManager.itemCount
           val pastVisibleItems: Int = mLayoutManager.findFirstVisibleItemPosition()
           if (aptoParaCargarComics) {
-
+            disponibilidadComics.visibility = View.INVISIBLE
             if (visibleItemCount + pastVisibleItems >= totalItemCount) {
               Log.i("apto", " Llegamos al final.")
               aptoParaCargarComics = false
               offset += 10
               getComicSerie(offset)
+
 
             }
           }
@@ -107,9 +109,12 @@ var dataComicsSeries: ArrayList<Result> = arrayListOf()
             dataComicsSeries.addAll(result)
             adapter?.notifyDataSetChanged()
 
-            dataComicsSeries.forEach {
-              Log.v("funciona", it.title)
-            }
+              if (body.data.results.isNotEmpty()) {
+                disponibilidadComics.visibility = View.INVISIBLE
+              } else {
+                disponibilidadComics.visibility = View.VISIBLE
+              }
+
 
           }
         } else {
@@ -117,11 +122,7 @@ var dataComicsSeries: ArrayList<Result> = arrayListOf()
         }
 
         if (body != null) {
-          if (body.data.count > 0) {
-            disponibilidadComics.visibility = View.INVISIBLE
-          } else {
-            disponibilidadComics.visibility = View.VISIBLE
-          }
+
         }
         loadingComicsSeries.visibility =  View.GONE
       }

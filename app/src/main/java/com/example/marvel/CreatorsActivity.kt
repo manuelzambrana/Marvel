@@ -34,6 +34,7 @@ class CreatorsActivity : AppCompatActivity() {
     adapter = CreatorsAdapter(dataCreators)
     recycler_creators.adapter = adapter
     ApiRest.initService()
+    fastScrollCreators.attachRecyclerView(recycler_creators)
 
     recycler_creators.addOnScrollListener(object : RecyclerView.OnScrollListener() {
       override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

@@ -11,19 +11,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <TextView
-      android:id="@+id/disponibilidad"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:gravity="center"
-      android:text="NO HAY EVENTOS DISPONIBLES"
-      android:textColor="@android:color/white"/>
+
     <androidx.recyclerview.widget.RecyclerView
       android:layout_width="match_parent"
       android:id="@+id/recycler_events_series"
       tools:listitem="@layout/item_home"
       android:layout_height="match_parent"
       />
+    <TextView
+      android:id="@+id/disponibilidad"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:text="NO HAY MAS EVENTOS DISPONIBLES"
+      android:textColor="@android:color/white"/>
     <ProgressBar
       android:layout_width="match_parent"
       android:layout_height="48dp"

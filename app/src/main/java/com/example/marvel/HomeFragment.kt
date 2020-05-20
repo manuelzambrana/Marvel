@@ -42,6 +42,11 @@ class HomeFragment : Fragment() {
       var series = Intent(activity, SeriesActivity::class.java)
       startActivity(series)
     }
+
+    view.goToEvents.setOnClickListener { view ->
+      var events = Intent(context, EventsActivity::class.java)
+      startActivity(events)
+    }
     return view
 
 

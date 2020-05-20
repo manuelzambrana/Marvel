@@ -7,12 +7,16 @@
   android:layout_height="match_parent"
   tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-      android:layout_width="match_parent"
-      android:id="@+id/recycler_series"
-      tools:listitem="@layout/item_home"
-      android:layout_height="match_parent"
-      />
+
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:id="@+id/recycler_events"
+    tools:listitem="@layout/item_home"
+    android:layout_height="match_parent"
+
+    />
+
   <com.pluscubed.recyclerfastscroll.RecyclerFastScroller
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
@@ -21,10 +25,11 @@
     app:rfs_barColor="@android:color/holo_red_light"
     app:rfs_handleNormalColor="@android:color/holo_red_light"
     app:rfs_handlePressedColor="@android:color/holo_red_dark"
-    android:id="@+id/fastScrollSeries" />
-    <ProgressBar
-      android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:id="@+id/loadingSeries"/>
+    android:id="@+id/fastScrollEvents" />
+
+  <ProgressBar
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:id="@+id/loadingEvents"/>
 
 </RelativeLayout>

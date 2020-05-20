@@ -10,7 +10,8 @@ import com.example.marvel.models.AllCharacters
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_home.view.*
 
-class CharactersAdapter (val data: ArrayList<AllCharacters>, val characterListener: ComicListener) : RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
+class CharactersAdapter (val data: ArrayList<AllCharacters>, val characterListener: ComicListener) : RecyclerView.Adapter<CharactersAdapter.ViewHolder>()  {
+
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home, parent, false)
     return ViewHolder(view)
