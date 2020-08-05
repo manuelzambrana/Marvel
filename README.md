@@ -1,0 +1,3 @@
+# Marvel
+
+En esta aplicación puedes ver tus cómics favoritos de marvel, todos los personajes, añadir tus eventos preferidos a favoritos, tus creadores etc...
